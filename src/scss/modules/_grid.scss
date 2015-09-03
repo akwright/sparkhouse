@@ -1,0 +1,11 @@
+.contain {
+  max-width: $contain-width;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  @media (min-width: $contain-width) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

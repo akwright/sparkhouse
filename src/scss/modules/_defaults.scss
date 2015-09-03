@@ -1,0 +1,11 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  color: $base-color;
+  font-size: 1em;
+  line-height: 1.4;
+}

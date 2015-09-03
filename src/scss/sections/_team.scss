@@ -1,0 +1,40 @@
+.team {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+  .team-member {
+    margin: 0 0 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+    .team-member img {
+      display: block;
+      vertical-align: middle;
+      border-radius: 50%;
+      max-width: 100%;
+    }
+    .team-member figcaption {
+      margin-top: 1em;
+      font-size: 1.5em;
+      font-family: $sans-serif;
+      text-transform: uppercase;
+    }
+    .team-member cite {
+      margin-top: .25em;
+      color: darken(white, 50%);
+      font-size: 1em;
+      font-family: $sans-serif;
+      font-style: normal;
+    }
+    .team-member p {
+      width: 80%;
+      max-width: 400px;
+      color: $base-color;
+    }
