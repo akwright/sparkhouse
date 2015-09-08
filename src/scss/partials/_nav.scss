@@ -5,7 +5,7 @@
   width: 100%;
 }
   .nav a {
-    color: #fff;
+    color: $nav-links;
     font-family: $sans-serif;
     letter-spacing: 2px;
     text-decoration: none;
@@ -15,4 +15,8 @@
       margin-left: 2em;
       margin-right: 2em;
     }
+  }
+
+  .nav img {
+    opacity: 0;
   }

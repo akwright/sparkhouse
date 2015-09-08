@@ -1,0 +1,75 @@
+/* Progress Loading Button */
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'icomoon';
+  src:url('../fonts/icomoon/icomoon.eot');
+  src:url('../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff') format('woff'),
+    url('../fonts/icomoon/icomoon.svg#icomoon') format('svg');
+}
+
+/* General styles for all types of buttons */
+.submit-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 60px;
+  outline: none;
+  border: none;
+  background: #1d9650;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  line-height: 4;
+}
+
+.submit-button[disabled],
+.submit-button[disabled].is-loading {
+  cursor: default;
+}
+
+.submit-button .content {
+  position: relative;
+  display: block;
+}
+
+.submit-button .icon::before  {
+  position: absolute;
+  left: 1em;
+  color: #044620;
+  font-family: "icomoon";
+  opacity: 0;
+  transition: opacity 0.3s 0.3s;
+}
+
+.submit-button.is-loading .icon::before {
+  content: "\e9A8";
+  transform-origin: center right;
+  animation: hammer 1s ease infinite;
+}
+
+.submit-button.is-successful .icon::before {
+  content: "\e600";
+}
+
+.submit-button.has-error .icon::before {
+  content: "\e601";
+}
+
+.submit-button.is-successful .icon::before
+.submit-button.has-error .icon::before,
+.submit-button.is-loading .icon::before {
+  opacity: 1;
+}
+
+@keyframes hammer {
+  0%, 100% {
+    transform: rotate(-45deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+}

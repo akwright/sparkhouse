@@ -369,6 +369,11 @@ html {
   font-size: 1em;
   line-height: 1.4; }
 
+body {
+  background: radial-gradient(circle, transparent 70%, rgba(0, 0, 0, 0.5)), radial-gradient(circle, rgba(255, 255, 255, 0.5) 70%, transparent), url('../img/dark-wood.jpg') repeat;
+  background-blend-mode: overlay;
+  background-attachment: fixed; }
+
 .contain {
   max-width: 1200px;
   margin: 0 auto;
@@ -435,6 +440,9 @@ fieldset {
   color: #fff;
   text-shadow: none; }
 
+.bg-white {
+  background: #fff; }
+
 .header {
   position: fixed;
   left: 0;
@@ -461,7 +469,7 @@ fieldset {
   width: 100%; }
 
 .nav a {
-  color: #fff;
+  color: #ea4020;
   font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
   text-decoration: none; }
@@ -469,6 +477,12 @@ fieldset {
     font-size: 40px;
     margin-left: 2em;
     margin-right: 2em; }
+
+.nav img {
+  opacity: 0; }
+
+.main {
+  position: relative; }
 
 .welcome {
   display: -webkit-flex;
@@ -484,12 +498,9 @@ fieldset {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  min-height: 100vh;
-  background: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.4) 46%), radial-gradient(transparent 45%, rgba(0, 0, 0, 0.4) 46%), url('https://unsplash.it/1200/700');
-  background-position: 0 0, 2px 2px;
-  background-size: 4px 4px, 4px 4px, cover;
-  background-repeat: repeat, repeat, no-repeat;
-  text-align: center; }
+  height: 100vh;
+  text-align: center;
+  z-index: 2; }
 
 .welcome h1, .welcome p {
   position: relative;
@@ -504,9 +515,93 @@ fieldset {
   line-height: 1.75; }
 
 .welcome .button {
-  margin-top: 1em; }
+  margin-top: 1em;
+  position: relative; }
 
-.team {
+.services {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.service-image-wrap, .service-text-wrap {
+  -webkit-flex-basis: 50%;
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+  max-width: 50%;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.service-image-wrap {
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  -webkit-perspective-origin: center;
+          perspective-origin: center; }
+
+.service-image {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.service-text-wrap {
+  position: relative; }
+
+.service-text {
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  top: 50%;
+  color: #fff;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+  .service-text h3 {
+    margin-top: 0;
+    margin-bottom: .25em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    font-weight: 200;
+    letter-spacing: .25em; }
+  .service-text h4 {
+    font-weight: 200;
+    font-family: 'Allan', cursive;
+    font-size: 1.5em;
+    line-height: 1.5;
+    letter-spacing: .025em; }
+  .service-text ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside; }
+  .service-text li {
+    margin: .5em 0;
+    font-size: .875em;
+    text-transform: uppercase; }
+
+.team .contain {
   padding-top: 4em;
   padding-bottom: 4em;
   display: -webkit-flex;
@@ -562,8 +657,10 @@ fieldset {
   max-width: 400px;
   color: #333; }
 
+.contact {
+  padding-top: 4em; }
+
 .contact-form {
-  margin-top: 4em;
   margin-bottom: 4em;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -741,3 +838,75 @@ fieldset {
 .location-column h3 {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase; }
+
+/* Progress Loading Button */
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon/icomoon.eot');
+  src: url('../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon/icomoon.ttf') format('truetype'), url('../fonts/icomoon/icomoon.woff') format('woff'), url('../fonts/icomoon/icomoon.svg#icomoon') format('svg'); }
+
+/* General styles for all types of buttons */
+.submit-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 60px;
+  outline: none;
+  border: none;
+  background: #1d9650;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  line-height: 4; }
+
+.submit-button[disabled], .submit-button[disabled].is-loading {
+  cursor: default; }
+
+.submit-button .content {
+  position: relative;
+  display: block; }
+
+.submit-button .icon::before {
+  position: absolute;
+  left: 1em;
+  color: #044620;
+  font-family: "icomoon";
+  opacity: 0;
+  transition: opacity 0.3s 0.3s; }
+
+.submit-button.is-loading .icon::before {
+  content: "\e9A8";
+  -webkit-transform-origin: center right;
+      -ms-transform-origin: center right;
+          transform-origin: center right;
+  -webkit-animation: hammer 1s ease infinite;
+          animation: hammer 1s ease infinite; }
+
+.submit-button.is-successful .icon::before {
+  content: "\e600"; }
+
+.submit-button.has-error .icon::before {
+  content: "\e601"; }
+
+.submit-button.is-successful .icon::before .submit-button.has-error .icon::before, .submit-button.is-loading .icon::before {
+  opacity: 1; }
+
+@-webkit-keyframes hammer {
+  0%, 100% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
+
+  75% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); } }
+
+@keyframes hammer {
+  0%, 100% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
+
+  75% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); } }

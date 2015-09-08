@@ -5,16 +5,9 @@
   justify-content: center;
 
   position: relative;
-  min-height: 100vh;
-  background:
-    radial-gradient(rgba(0,0,0,0) 45%,
-    rgba(0,0,0,0.4) 46%),
-    radial-gradient(rgba(0,0,0,0) 45%, rgba(0,0,0,0.4) 46%),
-    url('https://unsplash.it/1200/700');
-  background-position: 0 0, 2px 2px;
-  background-size:4px 4px, 4px 4px, cover;
-  background-repeat: repeat, repeat, no-repeat;
+  height: 100vh;
   text-align: center;
+  z-index: $zindex-base + 1;
 }
   .welcome h1,
   .welcome p {
@@ -33,4 +26,5 @@
 
   .welcome .button {
     margin-top: 1em;
+    position: relative;
   }
