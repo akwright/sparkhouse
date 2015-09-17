@@ -1,20 +1,13 @@
 *, *::before, *::after {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
 }
 html {
+  background: $base-color-light url('../img/light-6_tile.jpg') repeat;
   color: $base-color;
   font-size: 1em;
   line-height: 1.4;
 }
-
-  body {
-    background:
-      radial-gradient(circle, transparent 70%, rgba(0,0,0,.5)),
-      radial-gradient(circle, rgba(255,255,255,.5) 70%, transparent),
-      url('../img/dark-wood.jpg') repeat;
-    background-blend-mode: overlay;
-    background-attachment: fixed;
-  }

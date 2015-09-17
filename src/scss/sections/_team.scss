@@ -8,17 +8,14 @@
 }
   .team-member {
     margin: 0 0 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     text-align: center;
+    align-self: flex-start;
   }
     .team-member img {
       display: block;
-      vertical-align: middle;
       border-radius: 50%;
       max-width: 100%;
+      margin: auto;
     }
     .team-member figcaption {
       margin-top: 1em;
@@ -27,7 +24,9 @@
       text-transform: uppercase;
     }
     .team-member cite {
+      display: block;
       margin-top: .25em;
+      margin-bottom: 1.5em;
       color: darken(white, 50%);
       font-size: 1em;
       font-family: $sans-serif;
@@ -35,6 +34,7 @@
     }
     .team-member p {
       width: 80%;
+      margin: auto;
       max-width: 400px;
       color: $base-color;
     }

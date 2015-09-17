@@ -193,7 +193,7 @@
           submitBtn.classList.add('is-loading');
           submitBtn.setAttribute( 'disabled', '' );
 
-          submitBtnContent.innerHTML = "Sending Message...";
+          submitBtnContent.innerHTML = 'Sending Message...';
 
           var oData = new FormData(form);
 
@@ -203,14 +203,14 @@
             submitBtn.classList.remove('is-loading');
             if (oReq.status === 200) {
               submitBtn.classList.add('is-successful');
-              submitBtnContent.innerHTML = "Message Sent!";
+              submitBtnContent.innerHTML = 'Message Sent!';
               submitBtn.removeAttribute( 'disabled' );
               setTimeout(function() {
                 resetSubmit('is-successful');
               }, 1500);
             } else {
               submitBtn.classList.add('has-error');
-              submitBtnContent.innerHTML = "Message Sending Failed. Please Try Again.";
+              submitBtnContent.innerHTML = 'Message Sending Failed. Please Try Again.';
               submitBtn.removeAttribute( 'disabled' );
               setTimeout(function() {
                 resetSubmit('has-error');
@@ -224,8 +224,8 @@
         }, false);
 
         function resetSubmit(classname) {
-          submitBtn.classList.remove(classname)
-          submitBtnContent.innerHTML = "Send & Get Started";
+          submitBtn.classList.remove(classname);
+          submitBtnContent.innerHTML = 'Send & Get Started';
         }
       }
 

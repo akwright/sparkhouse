@@ -2,16 +2,16 @@
   padding: .75em 2em;
   text-decoration: none;
 
-  transition: .25s ease;
+  transition: color .25s ease, background-color .25s ease;
 }
 
 .outline-button {
-  color: white;
-  border: 1px solid white;
+  color: $base-color;
+  border: 1px solid $base-color;
   border-radius: 3px;
 
   &:hover {
-    background-color: white;
-    color: $base-color;
+    background-color: $base-color;
+    color: $base-color-light;
   }
 }
