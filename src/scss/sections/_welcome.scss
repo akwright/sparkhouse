@@ -5,7 +5,7 @@
   justify-content: flex-start;
 
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   z-index: $zindex-base + 1;
 }
