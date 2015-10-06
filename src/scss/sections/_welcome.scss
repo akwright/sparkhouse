@@ -7,13 +7,14 @@
   position: relative;
   min-height: 100vh;
   text-align: center;
-  z-index: $zindex-base + 1;
+  z-index: $zindex-base + 2;
 }
   .welcome .logo {
     position: fixed;
-    top: 30px; left: 50%;
+    top: 0px; left: 50%;
     transform: translateX(-50%);
     transform-origin: top;
+    max-width: 180px;
   }
 
   .welcome h1,

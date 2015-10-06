@@ -451,6 +451,7 @@ fieldset {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 3; }
 
 .nav {
@@ -482,7 +483,7 @@ fieldset {
   position: relative; }
 
 .footer {
-  color: #fff;
+  color: #666666;
   text-align: center; }
 
 .copyright {
@@ -505,18 +506,19 @@ fieldset {
   position: relative;
   min-height: 100vh;
   text-align: center;
-  z-index: 2; }
+  z-index: 3; }
 
 .welcome .logo {
   position: fixed;
-  top: 30px;
+  top: 0px;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   -webkit-transform-origin: top;
       -ms-transform-origin: top;
-          transform-origin: top; }
+          transform-origin: top;
+  max-width: 180px; }
 
 .welcome h1, .welcome p {
   color: #333;
@@ -556,7 +558,47 @@ fieldset {
       -ms-flex-pack: center;
           justify-content: center; }
 
-.service-image-wrap, .service-text-wrap {
+.service-image-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
+  -webkit-perspective-origin: center;
+          perspective-origin: center;
+  -webkit-transform-style: flat;
+          transform-style: flat;
+  position: relative; }
+
+.service-image, .service-house, .service-house img, .service-house--roof, .service-house--left_section, .service-house--right_section {
+  position: absolute; }
+
+.service-image {
+  top: 50%;
+  left: 50%; }
+
+.service-house, .service-house img {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+.service-house--roof {
+  top: calc(50% - 70px);
+  left: calc(50% - 20px); }
+
+.service-house--left_section {
+  top: calc(50% - 20px);
+  left: calc(50% - 174px); }
+
+.service-house--right_section {
+  top: calc(50% - 20px);
+  left: calc(50% + 6px); }
+
+.service-text-wrap {
   -webkit-flex-basis: 50%;
       -ms-flex-preferred-size: 50%;
           flex-basis: 50%;
@@ -569,22 +611,7 @@ fieldset {
   display: flex;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
-
-.service-image-wrap {
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-perspective: 800px;
-          perspective: 800px;
-  -webkit-perspective-origin: center;
-          perspective-origin: center; }
-
-.service-image {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d; }
-
-.service-text-wrap {
+          align-items: center;
   position: relative; }
 
 .service-text {

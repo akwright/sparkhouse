@@ -6,5 +6,7 @@
   display: flex;
   align-items: center;
 
+  background-color: rgba(255,255,255,.9);
+
   z-index: $zindex-base + 2;
 }
