@@ -67,6 +67,7 @@
         padding: 1em 3em 6em;
         min-width: 175px;
         
+        background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 3px;
         color: rgba(0,0,0,.3);
@@ -164,11 +165,38 @@
 
 
 .map {
-  margin: 0;
+  position: relative;
+  height: 660px;
 
   img {
+    opacity: 0;
+  }
+
+  img, svg {
+    position: absolute;
+    top: 0;
+    left: 0; right: 0;
+    margin: auto;
+    height: auto;
     width: 100%;
-    max-width: 100%;
+
+    transition: opacity .5s;
+
+    &.show { opacity: 1; }
+    &.hide { opacity: 0; }
+  }
+
+  svg {
+    z-index: $zindex-base + 1;
+  }
+
+  svg path,
+  svg polygon,
+  svg rect,
+  svg circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
   }
 }
 

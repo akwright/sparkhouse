@@ -451,8 +451,8 @@ fieldset {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 3; }
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 4; }
 
 .nav {
   display: -webkit-flex;
@@ -505,8 +505,7 @@ fieldset {
           justify-content: flex-start;
   position: relative;
   min-height: 100vh;
-  text-align: center;
-  z-index: 3; }
+  text-align: center; }
 
 .welcome .logo {
   position: fixed;
@@ -518,7 +517,8 @@ fieldset {
   -webkit-transform-origin: top;
       -ms-transform-origin: top;
           transform-origin: top;
-  max-width: 180px; }
+  max-width: 180px;
+  z-index: 5; }
 
 .welcome h1, .welcome p {
   color: #333;
@@ -572,31 +572,15 @@ fieldset {
           transform-style: flat;
   position: relative; }
 
-.service-image, .service-house, .service-house img, .service-house--roof, .service-house--left_section, .service-house--right_section {
+.service-image, .service-image img {
   position: absolute; }
 
-.service-image {
-  top: 50%;
-  left: 50%; }
-
-.service-house, .service-house img {
+.service-image, .service-image img {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
-
-.service-house--roof {
-  top: calc(50% - 70px);
-  left: calc(50% - 20px); }
-
-.service-house--left_section {
-  top: calc(50% - 20px);
-  left: calc(50% - 174px); }
-
-.service-house--right_section {
-  top: calc(50% - 20px);
-  left: calc(50% + 6px); }
 
 .service-text-wrap {
   -webkit-flex-basis: 50%;
@@ -768,6 +752,7 @@ fieldset {
   position: relative;
   padding: 1em 3em 6em;
   min-width: 175px;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
   color: rgba(0, 0, 0, 0.3);
@@ -852,10 +837,29 @@ fieldset {
     color: #e25b23; }
 
 .map {
-  margin: 0; }
+  position: relative;
+  height: 660px; }
   .map img {
+    opacity: 0; }
+  .map img, .map svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: auto;
     width: 100%;
-    max-width: 100%; }
+    transition: opacity .5s; }
+    .map img.show, .map svg.show {
+      opacity: 1; }
+    .map img.hide, .map svg.hide {
+      opacity: 0; }
+  .map svg {
+    z-index: 2; }
+  .map svg path, .map svg polygon, .map svg rect, .map svg circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 2; }
 
 .location {
   padding-top: 4em;

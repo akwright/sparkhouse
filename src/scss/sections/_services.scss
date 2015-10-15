@@ -21,23 +21,11 @@
   }
 
     .service-image,
-    .service-house,
-    .service-house img,
-    .service-house--roof,
-    .service-house--left_section,
-    .service-house--right_section {
+    .service-image img {
       position: absolute;
     }
-      .service-image                { top: 50%; left: 50%; }
-      .service-house,
-      .service-house img            { top: 50%; left: 50%; transform: translate(-50%,-50%); }
-      .service-house--roof          { top: calc(50% - 70px); left: calc(50% - 20px); }
-      .service-house--left_section  { top: calc(50% - 20px); left: calc(50% - 174px); }
-      .service-house--right_section { top: calc(50% - 20px); left: calc(50% + 6px); }
-
-      .service-image img {
-        
-      }
+      .service-image,
+      .service-image img            { top: 50%; left: 50%; transform: translate(-50%,-50%); }
 
 
   .service-text-wrap {
