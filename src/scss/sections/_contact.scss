@@ -12,14 +12,24 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 
-    &:first-of-type fieldset:first-of-type { margin-right: 2em; }
+    &:first-of-type fieldset:first-of-type { margin-bottom: 1em; }
 
     &.checkbox-labels {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       margin-left: -2em;
+    }
+
+    @media (min-width: 500px) {
+      flex-wrap: nowrap;
+
+      &:first-of-type fieldset:first-of-type {
+        margin-bottom: 0;
+        margin-right: 2em;
+      }
     }
   }
 
@@ -196,7 +206,7 @@
   svg circle {
     fill: none;
     stroke: black;
-    stroke-width: 2;
+    stroke-width: 1;
   }
 }
 

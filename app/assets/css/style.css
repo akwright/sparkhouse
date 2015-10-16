@@ -371,6 +371,14 @@ html {
   font-size: 1em;
   line-height: 1.4; }
 
+a {
+  color: #d9412f; }
+  a:hover {
+    text-decoration: none; }
+
+address {
+  font-style: normal; }
+
 .contain {
   max-width: 1200px;
   margin: 0 auto;
@@ -452,7 +460,17 @@ fieldset {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   z-index: 4; }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, #f9a83b, #da2331); }
 
 .nav {
   display: -webkit-flex;
@@ -467,10 +485,18 @@ fieldset {
   width: 100%; }
 
 .nav a {
-  color: #f15a24;
+  color: #f17f30;
   font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
   text-decoration: none; }
+  .nav a:nth-of-type(1) {
+    color: #f9a83b; }
+  .nav a:nth-of-type(2) {
+    color: #f17f30; }
+  .nav a:nth-of-type(4) {
+    color: #d9412f; }
+  .nav a:nth-of-type(5) {
+    color: #da2331; }
   .nav a:nth-of-type(3) {
     font-size: 40px;
     margin-left: 2em;
@@ -478,6 +504,9 @@ fieldset {
 
 .nav img {
   opacity: 0; }
+
+.no-skrolling .nav a:nth-of-type(3) {
+  display: none; }
 
 .main {
   position: relative; }
@@ -500,24 +529,17 @@ fieldset {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
+  padding-top: 150px;
   min-height: 100vh;
   text-align: center; }
 
 .welcome .logo {
-  position: fixed;
-  top: 0px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  -webkit-transform-origin: top;
-      -ms-transform-origin: top;
-          transform-origin: top;
-  max-width: 180px;
+  width: 100%;
+  max-width: 150px;
   z-index: 5; }
 
 .welcome h1, .welcome p {
@@ -525,7 +547,6 @@ fieldset {
   position: relative; }
 
 .welcome h1 {
-  margin-top: 500px;
   font-family: 'Allan', cursive; }
 
 .welcome p {
@@ -535,9 +556,45 @@ fieldset {
 
 .welcome .button {
   margin-top: 1em;
-  position: relative; }
+  position: relative;
+  z-index: 3; }
 
-.services {
+.is-skrolling .welcome .logo {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  -webkit-transform-origin: top;
+      -ms-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: translate(-50%, 150px);
+      -ms-transform: translate(-50%, 150px);
+          transform: translate(-50%, 150px); }
+.is-skrolling .welcome h1 {
+  margin-top: 300px; }
+
+.service-text h3 {
+  margin-top: 0;
+  margin-bottom: .25em;
+  font-family: 'Oswald', sans-serif;
+  font-size: 3em;
+  font-weight: 200;
+  letter-spacing: .25em; }
+.service-text h4 {
+  font-weight: 200;
+  font-family: 'Allan', cursive;
+  font-size: 1.5em;
+  line-height: 1.5;
+  letter-spacing: .025em; }
+.service-text ul {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside; }
+.service-text li {
+  margin: .5em 0;
+  font-size: .875em;
+  text-transform: uppercase; }
+
+.is-skrolling .services {
   position: fixed;
   top: 0;
   right: 0;
@@ -556,9 +613,12 @@ fieldset {
           align-items: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
-
-.service-image-wrap {
+          justify-content: center;
+  opacity: 0;
+  transition: opacity .25s; }
+  .is-skrolling .services.is-visible {
+    opacity: 1; }
+.is-skrolling .service-image-wrap {
   position: absolute;
   top: 0;
   left: 0;
@@ -571,18 +631,15 @@ fieldset {
   -webkit-transform-style: flat;
           transform-style: flat;
   position: relative; }
-
-.service-image, .service-image img {
+.is-skrolling .service-image, .is-skrolling .service-image img {
   position: absolute; }
-
-.service-image, .service-image img {
+.is-skrolling .service-image, .is-skrolling .service-image img {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
-
-.service-text-wrap {
+.is-skrolling .service-text-wrap {
   -webkit-flex-basis: 50%;
       -ms-flex-preferred-size: 50%;
           flex-basis: 50%;
@@ -597,8 +654,7 @@ fieldset {
       -ms-flex-align: center;
           align-items: center;
   position: relative; }
-
-.service-text {
+.is-skrolling .service-text {
   position: absolute;
   width: 100%;
   max-width: 500px;
@@ -607,27 +663,65 @@ fieldset {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%); }
-  .service-text h3 {
-    margin-top: 0;
-    margin-bottom: .25em;
-    font-family: 'Oswald', sans-serif;
-    font-size: 3em;
-    font-weight: 200;
-    letter-spacing: .25em; }
-  .service-text h4 {
-    font-weight: 200;
-    font-family: 'Allan', cursive;
-    font-size: 1.5em;
-    line-height: 1.5;
-    letter-spacing: .025em; }
-  .service-text ul {
-    margin: 0;
-    padding: 0;
-    list-style-position: inside; }
-  .service-text li {
-    margin: .5em 0;
-    font-size: .875em;
-    text-transform: uppercase; }
+
+.no-skrolling .services {
+  padding-top: 100px;
+  position: relative; }
+.no-skrolling .service-image-wrap.is-fixed {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  height: 378px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+.no-skrolling .service-image {
+  opacity: 0;
+  transition: opacity .3s; }
+  .no-skrolling .service-image.is-visible {
+    opacity: 1; }
+.no-skrolling .service-image img, .no-skrolling .service-image svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%; }
+.no-skrolling .service-image img {
+  top: 55px;
+  opacity: 0;
+  transition: opacity .25s; }
+  .no-skrolling .service-image img:nth-of-type(1) {
+    z-index: 1; }
+  .no-skrolling .service-image img:nth-of-type(2) {
+    z-index: 2; }
+  .no-skrolling .service-image img.is-visible {
+    opacity: 1; }
+.no-skrolling .service-text-wrap::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transition: opacity .4s; }
+.no-skrolling .service-text-wrap.has-overlay::before {
+  opacity: 1; }
+.no-skrolling .service-text {
+  margin: 100em 0;
+  padding: 0 2em;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .no-skrolling .service-text:first-of-type {
+    margin-top: 15em; }
 
 .team .contain {
   padding-top: 4em;
@@ -676,8 +770,9 @@ fieldset {
 .team-member p {
   width: 80%;
   margin: auto;
-  max-width: 400px;
-  color: #333; }
+  max-width: 480px;
+  color: #333;
+  line-height: 1.75; }
 
 .contact {
   padding-top: 4em; }
@@ -700,9 +795,12 @@ fieldset {
           align-items: center;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
-          justify-content: space-around; }
+          justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
   .fields:first-of-type fieldset:first-of-type {
-    margin-right: 2em; }
+    margin-bottom: 1em; }
   .fields.checkbox-labels {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -714,6 +812,14 @@ fieldset {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     margin-left: -2em; }
+  @media (min-width: 500px) {
+    .fields {
+      -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+              flex-wrap: nowrap; }
+      .fields:first-of-type fieldset:first-of-type {
+        margin-bottom: 0;
+        margin-right: 2em; } }
 
 .fields fieldset {
   position: relative;
@@ -859,7 +965,7 @@ fieldset {
   .map svg path, .map svg polygon, .map svg rect, .map svg circle {
     fill: none;
     stroke: black;
-    stroke-width: 2; }
+    stroke-width: 1; }
 
 .location {
   padding-top: 4em;
@@ -896,7 +1002,7 @@ fieldset {
   padding: 0 60px;
   outline: none;
   border: none;
-  background: #1d9650;
+  background: linear-gradient(155deg, #f17f30, #d9412f);
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;

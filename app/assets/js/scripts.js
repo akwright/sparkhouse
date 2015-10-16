@@ -16,9 +16,9 @@
  * isMobile
  * from: https://github.com/kaimallea/isMobile
  **/
-!function(a){var b=/iPhone/i,c=/iPod/i,d=/iPad/i,e=/(?=.*\bAndroid\b)(?=.*\bMobile\b)/i,f=/Android/i,g=/(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i,h=/(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i,i=/IEMobile/i,j=/(?=.*\bWindows\b)(?=.*\bARM\b)/i,k=/BlackBerry/i,l=/BB10/i,m=/Opera Mini/i,n=/(CriOS|Chrome)(?=.*\bMobile\b)/i,o=/(?=.*\bFirefox\b)(?=.*\bMobile\b)/i,p=new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)","i"),q=function(a,b){return a.test(b)},r=function(a){var r=a||navigator.userAgent,s=r.split("[FBAN");return"undefined"!=typeof s[1]&&(r=s[0]),this.apple={phone:q(b,r),ipod:q(c,r),tablet:!q(b,r)&&q(d,r),device:q(b,r)||q(c,r)||q(d,r)},this.amazon={phone:q(g,r),tablet:!q(g,r)&&q(h,r),device:q(g,r)||q(h,r)},this.android={phone:q(g,r)||q(e,r),tablet:!q(g,r)&&!q(e,r)&&(q(h,r)||q(f,r)),device:q(g,r)||q(h,r)||q(e,r)||q(f,r)},this.windows={phone:q(i,r),tablet:q(j,r),device:q(i,r)||q(j,r)},this.other={blackberry:q(k,r),blackberry10:q(l,r),opera:q(m,r),firefox:q(o,r),chrome:q(n,r),device:q(k,r)||q(l,r)||q(m,r)||q(o,r)||q(n,r)},this.seven_inch=q(p,r),this.any=this.apple.device||this.android.device||this.windows.device||this.other.device||this.seven_inch,this.phone=this.apple.phone||this.android.phone||this.windows.phone,this.tablet=this.apple.tablet||this.android.tablet||this.windows.tablet,"undefined"==typeof window?this:void 0},s=function(){var a=new r;return a.Class=r,a};"undefined"!=typeof module&&module.exports&&"undefined"==typeof window?module.exports=r:"undefined"!=typeof module&&module.exports&&"undefined"!=typeof window?module.exports=s():"function"==typeof define&&define.amd?define("isMobile",[],a.isMobile=s()):a.isMobile=s()}(this);
+!function(a){var b=/iPhone/i,c=/iPod/i,d=/iPad/i,e=/(?=.*\bAndroid\b)(?=.*\bMobile\b)/i,f=/Android/i,g=/(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i,h=/(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i,i=/IEMobile/i,j=/(?=.*\bWindows\b)(?=.*\bARM\b)/i,k=/BlackBerry/i,l=/BB10/i,m=/Opera Mini/i,n=/(CriOS|Chrome)(?=.*\bMobile\b)/i,o=/(?=.*\bFirefox\b)(?=.*\bMobile\b)/i,p=new RegExp('(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)','i'),q=function(a,b){return a.test(b)},r=function(a){var r=a||navigator.userAgent,s=r.split('[FBAN');return'undefined'!==typeof s[1]&&(r=s[0]),this.apple={phone:q(b,r),ipod:q(c,r),tablet:!q(b,r)&&q(d,r),device:q(b,r)||q(c,r)||q(d,r)},this.amazon={phone:q(g,r),tablet:!q(g,r)&&q(h,r),device:q(g,r)||q(h,r)},this.android={phone:q(g,r)||q(e,r),tablet:!q(g,r)&&!q(e,r)&&(q(h,r)||q(f,r)),device:q(g,r)||q(h,r)||q(e,r)||q(f,r)},this.windows={phone:q(i,r),tablet:q(j,r),device:q(i,r)||q(j,r)},this.other={blackberry:q(k,r),blackberry10:q(l,r),opera:q(m,r),firefox:q(o,r),chrome:q(n,r),device:q(k,r)||q(l,r)||q(m,r)||q(o,r)||q(n,r)},this.sevenInch=q(p,r),this.any=this.apple.device||this.android.device||this.windows.device||this.other.device||this.sevenInch,this.phone=this.apple.phone||this.android.phone||this.windows.phone,this.tablet=this.apple.tablet||this.android.tablet||this.windows.tablet,'undefined'===typeof window?this:void 0},s=function(){var a=new r;return a.Class=r,a};'undefined'!==typeof module&&module.exports&&'undefined'===typeof window?module.exports=r:'undefined'!==typeof module&&module.exports&&'undefined'!==typeof window?module.exports=s():'function'===typeof define&&define.amd?define('isMobile',[],a.isMobile=s()):a.isMobile=s()}(this);
 
-;(function ($, window, document, undefined) {
+;(function (window, document, undefined) {
 
   'use strict';
 
@@ -292,18 +292,104 @@
   var sparkhouse = {
     
     init: function() {
-      this.floatingLabels.init();
-      this.messageCount.init();
-      this.svgCheckboxes.init();
-      this.formSubmission.init();
-      this.setSVGDashes.init();
+      this.services.init();
+      this.form.init();
       this.setupMapSVG.init();
-      //this.scrollServices.init();
+      this.setupMobileScroll.init();
     },
 
-    floatingLabels: {
+    services: {
 
       init: function() {
+
+        // un-hide services on page-load
+        var services = document.getElementById('services');
+        services.classList.add('is-visible');
+
+        this.setSVGDashes();
+        this.scrollServices();
+
+      },
+
+      setSVGDashes: function(mobile) {
+
+        var mainSVG     = document.getElementById('house_scene'),
+            SVGChildren = Array.prototype.slice.call(mainSVG.children);
+        
+        getLengths(SVGChildren);
+
+        function setStrokeAttributes(svgEl, totalLength) {
+          if (mobile) {
+            svgEl.setAttribute('stroke-dasharray', Math.ceil(totalLength));
+            svgEl.setAttribute('stroke-dashoffset', Math.ceil(totalLength));
+          } else {
+            svgEl.setAttribute('data-_box-150p', 'stroke-dasharray:' + Math.ceil(totalLength) + 'px; stroke-dashoffset:' + Math.ceil(totalLength) + 'px;');
+            svgEl.setAttribute('data-_box-250p', 'stroke-dasharray:' + Math.ceil(totalLength) + 'px; stroke-dashoffset:0px;');
+          }
+        }
+
+        function getLengths(eleArr) {
+            eleArr.forEach( function(ele, i) {
+                if (ele.tagName === 'polygon') {
+                    setStrokeAttributes(ele, tools.getPolygonLength(ele));
+                } else if (ele.tagName === 'path') {
+                    setStrokeAttributes(ele, tools.getPathLength(ele));
+                } else if (ele.tagName === 'line') {
+                    setStrokeAttributes(ele, tools.getLineLength(ele));
+                } else if (ele.tagName === 'circle') {
+                    setStrokeAttributes(ele, tools.getCircleLength(ele));
+                } else if (ele.tagName === 'g') {
+                    window['eleArr' + i] = Array.prototype.slice.call(ele.children);
+                    getLengths(window['eleArr' + i]);
+                }
+            });
+        }
+
+      },
+
+      scrollServices: function() {
+
+        var main = document.querySelector('.js-main'),
+            bodyEl = document.body;
+
+        // Only init skrollr if not on a mobile device
+        if (!isMobile.any) {
+          bodyEl.classList.remove('no-skrolling');
+          bodyEl.classList.add('is-skrolling');
+
+          skrollr.init({
+            constants: {
+              box: '100p'
+            }
+          });
+
+          adjustHeight();
+        }
+
+        function adjustHeight() {
+          var bodyHeight = parseInt(bodyEl.style.height.replace('px', '')),
+              docHeight  = parseInt(document.documentElement.clientHeight);
+
+          main.style.marginTop = (bodyHeight - docHeight) + 'px';
+        }
+
+      }
+
+    },
+
+    form: {
+
+      init: function() {
+
+        this.floatingLabels();
+        this.messageCount();
+        this.svgCheckboxes();
+        this.formSubmission();
+
+      },
+
+      floatingLabels: function() {
+
         var inputs         = document.querySelectorAll('.input'),
             inputArr       = getDomNodeArray(inputs),
             inputOnClass   = 'is-active',
@@ -336,13 +422,11 @@
 
           inputArr[i].addEventListener('blur', toggleLabelClass, false);
         }
-      }
 
-    },
+      },
 
-    messageCount: {
+      messageCount: function() {
 
-      init: function() {
         var textarea  = document.getElementById('message'),
             maxChars  = parseInt(textarea.getAttribute('maxlength')),
             curChars  = 0,
@@ -364,13 +448,11 @@
 
         textarea.addEventListener('keyup', updateCharCount, false);
         textarea.addEventListener('blur', updateCharCount, false);
-      }
 
-    },
+      },
 
-    svgCheckboxes: {
+      svgCheckboxes: function() {
 
-      init: function() {
         if( document.createElement('svg').getAttributeNS ) {
 
           var checkbxsCheckmark = Array.prototype.slice.call( document.querySelectorAll( '.checkbox-labels input[type="checkbox"]' ) ),
@@ -450,13 +532,11 @@
           };
 
         }
-      }
 
-    },
+      },
 
-    formSubmission: {
+      formSubmission: function() {
 
-      init: function() {
         var form              = document.querySelector('.js-contact-form'),
             submitBtn         = document.querySelector('.js-submit-button'),
             submitBtnContent  = document.querySelector('.js-submit-content');
@@ -500,42 +580,6 @@
           submitBtn.classList.remove(classname);
           submitBtnContent.innerHTML = 'Send & Get Started';
         }
-      }
-
-    },
-
-    setSVGDashes: {
-
-      init: function() {
-
-        var mainSVG     = document.getElementById('house_scene'),
-            SVGChildren = Array.prototype.slice.call(mainSVG.children);
-
-        
-        
-        getLengths(SVGChildren);
-
-        function setStrokeAttributes(svgEl, totalLength) {
-            svgEl.setAttribute('data-_box-150p', 'stroke-dasharray:' + Math.ceil(totalLength) + 'px; stroke-dashoffset:' + Math.ceil(totalLength) + 'px;');
-            svgEl.setAttribute('data-_box-250p', 'stroke-dasharray:' + Math.ceil(totalLength) + 'px; stroke-dashoffset:0px;');
-        }
-
-        function getLengths(eleArr) {
-            eleArr.forEach( function(ele, i) {
-                if (ele.tagName === 'polygon') {
-                    setStrokeAttributes(ele, tools.getPolygonLength(ele));
-                } else if (ele.tagName === 'path') {
-                    setStrokeAttributes(ele, tools.getPathLength(ele));
-                } else if (ele.tagName === 'line') {
-                    setStrokeAttributes(ele, tools.getLineLength(ele));
-                } else if (ele.tagName === 'circle') {
-                    setStrokeAttributes(ele, tools.getCircleLength(ele));
-                } else if (ele.tagName === 'g') {
-                    window['eleArr' + i] = Array.prototype.slice.call(ele.children);
-                    getLengths(window['eleArr' + i]);
-                }
-            });
-        }
 
       }
 
@@ -551,35 +595,35 @@
             // the svgs already shown...
             var svg = new SVGEl( mapSVG );
             setTimeout(function( mapSVG ) {
-                return function() {
-                    if( inViewport( mapSVG.parentNode ) ) {
-                        svg.render();
-                    }
-                };
+              return function() {
+                if( inViewport( mapSVG.parentNode ) ) {
+                  svg.render();
+                }
+              };
             }( mapSVG ), 250 );
 
             var scrollHandler = function() {
-                    if( !didScroll ) {
-                        didScroll = true;
-                        setTimeout( function() { scrollPage(); }, 60 );
-                    }
-                },
-                scrollPage = function() {
-                    if( inViewport( mapSVG.parentNode, 0.5 ) ) {
-                        svg.render();
-                    }
-                    didScroll = false;
-                },
-                resizeHandler = function() {
-                    function delayed() {
-                        scrollPage();
-                        resizeTimeout = null;
-                    }
-                    if ( resizeTimeout ) {
-                        clearTimeout( resizeTimeout );
-                    }
-                    resizeTimeout = setTimeout( delayed, 200 );
-                };
+                if( !didScroll ) {
+                  didScroll = true;
+                  setTimeout( function() { scrollPage(); }, 60 );
+                }
+              },
+              scrollPage = function() {
+                if( inViewport( mapSVG.parentNode, 0.5 ) ) {
+                  svg.render();
+                }
+                didScroll = false;
+              },
+              resizeHandler = function() {
+                function delayed() {
+                  scrollPage();
+                  resizeTimeout = null;
+                }
+                if ( resizeTimeout ) {
+                  clearTimeout( resizeTimeout );
+                }
+                resizeTimeout = setTimeout( delayed, 200 );
+              };
 
             window.addEventListener( 'scroll', scrollHandler, false );
             window.addEventListener( 'resize', resizeHandler, false );
@@ -587,35 +631,131 @@
 
     },
 
-    scrollServices: {
+    setupMobileScroll: {
 
       init: function() {
 
-        // Only init skrollr if not on a mobile device
-        if (!isMobile.any) {
-          skrollr.init({
-            constants: {
-              box: '100p'
-            }
-          });
+        sparkhouse.services.setSVGDashes(true);
 
-          sparkhouse.adjustHeight.init();
+        var imageWrap   = document.querySelector('.service-image-wrap'),
+            imageEle    = document.querySelector('.service-image'),
+            houseImgOne = document.querySelector('.service-image img:first-of-type'),
+            houseImgTwo = document.querySelector('.service-image img:last-of-type'),
+            iwOffsetTop = imageWrap.getBoundingClientRect().top,
+            main        = document.querySelector('.js-main'),
+            textWrap    = document.querySelector('.service-text-wrap'),
+            textBlock1  = document.querySelector('.service-text:nth-child(1)'),
+            textBlock2  = document.querySelector('.service-text:nth-child(2)'),
+            textBlock3  = document.querySelector('.service-text:nth-child(3)'),
+            textBlock4  = document.querySelector('.service-text:nth-child(4)'),
+            didScroll   = false,
+            SVGChildren = Array.prototype.slice.call(document.querySelectorAll('#house_scene [stroke-dasharray]'));
+
+        setTimeout(function( imageWrap ) {
+          return function() {
+            if( window.scrollY >= (iwOffsetTop - (docElem.clientHeight / 2)) && window.scrollY <= ( main.offsetTop - iwOffsetTop) ) {
+                imageWrap.classList.add('is-fixed');
+            } else {
+              imageWrap.classList.remove('is-fixed');
+            }
+          };
+        }( imageWrap ), 250 );
+
+        var mobileScrollHandler = function() {
+            if( !didScroll ) {
+              didScroll = true;
+              setTimeout( function() { scrollPage(); }, 60 );
+            }
+          },
+          scrollPage = function() {
+
+            if( window.scrollY >= (iwOffsetTop - (docElem.clientHeight / 2)) && window.scrollY <= (main.offsetTop - iwOffsetTop ) ) {
+                imageWrap.classList.add('is-fixed');
+            } else {
+              imageWrap.classList.remove('is-fixed');
+            }
+
+            // Show the overlay when each text block is visible
+            //
+            // @TODO: Clean up this code.
+            //
+            if ( window.scrollY >= textBlock2.offsetTop && window.scrollY <= (textBlock2.offsetTop + textBlock2.clientHeight + docElem.clientHeight) ) {
+              textWrap.classList.add('has-overlay');
+            } else if ( window.scrollY >= textBlock3.offsetTop && window.scrollY <= (textBlock3.offsetTop + textBlock3.clientHeight + docElem.clientHeight) ) {
+              textWrap.classList.add('has-overlay');
+            } else if ( window.scrollY >= textBlock4.offsetTop && window.scrollY <= (textBlock4.offsetTop + textBlock4.clientHeight + docElem.clientHeight) ) {
+              textWrap.classList.add('has-overlay');
+            } else {
+              textWrap.classList.remove('has-overlay');
+            }
+
+            // If we're past the design block
+            if ( window.scrollY >= (textBlock1.offsetTop + textBlock1.clientHeight + docElem.clientHeight) ) {
+              // Show the blueprint
+              showImage(imageEle);
+            }
+
+            // If we're past the develop block
+            if ( window.scrollY >= (textBlock2.offsetTop + textBlock2.clientHeight + docElem.clientHeight) ) {
+              // Animate the house drawing
+              animateOffsets();
+            }
+
+            // Once we're past the market block
+            if ( window.scrollY >= (textBlock3.offsetTop + textBlock3.clientHeight + docElem.clientHeight) ) {
+              // Fade in the image
+              showImage(houseImgOne);
+            }
+
+            // Once we get past the iterate block
+            if ( window.scrollY >= (textBlock4.offsetTop + textBlock4.clientHeight + docElem.clientHeight) ) {
+              // Fade in the image with pool
+              showImage(houseImgTwo);
+            }
+
+
+            didScroll = false;
+          };
+
+        var animateOffsets = (function() {
+
+          var hasRun = false;
+
+          return function() {
+            if (!hasRun) {
+              hasRun = true;
+
+              SVGChildren.forEach(function(paths, i) {
+                var pathLength = paths.getAttribute('stroke-dashoffset');
+
+                function animateRoute(ele, length) {
+                  length -= 10;
+                  if (length < 0) { length = 0; }
+
+                  paths.setAttribute('stroke-dashoffset', length);
+
+                  if (length > 0) {
+                    setTimeout(function() {
+                      animateRoute(ele, length);
+                    }, 45);
+                  }
+                }
+
+                animateRoute(paths, pathLength);
+                
+              });
+            }
+          };
+        })();
+
+        function showImage(ele) {
+          if (ele.classList.contains('is-visible')) { return; }
+          else {
+            ele.classList.add('is-visible');
+          }
         }
 
-      }
-
-    },
-
-    adjustHeight: {
-
-      init: function() {
-
-        var main = document.querySelector('.js-main'),
-            bodyEl = document.body,
-            bodyHeight = parseInt(bodyEl.style.height.replace('px', '')),
-            docHeight  = parseInt(document.documentElement.clientHeight);
-
-        main.style.marginTop = (bodyHeight - docHeight) + 'px';
+        window.addEventListener( 'scroll', mobileScrollHandler, false );
 
       }
 
@@ -623,6 +763,9 @@
 
   };
 
-  sparkhouse.init();
 
-})(jQuery, window, document);
+  window.addEventListener('DOMContentLoaded', function() {
+    sparkhouse.init();
+  }, false);
+
+})(window, document);

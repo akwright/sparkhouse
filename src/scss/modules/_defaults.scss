@@ -11,3 +11,13 @@ html {
   font-size: 1em;
   line-height: 1.4;
 }
+
+a {
+  color: $red-orange;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+address { font-style: normal; }

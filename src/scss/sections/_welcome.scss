@@ -2,18 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   position: relative;
+  padding-top: 150px;
   min-height: 100vh;
   text-align: center;
 }
+
   .welcome .logo {
-    position: fixed;
-    top: 0px; left: 50%;
-    transform: translateX(-50%);
-    transform-origin: top;
-    max-width: 180px;
+    width: 100%;
+    max-width: 150px;
     z-index: $zindex-base + 4;
   }
 
@@ -24,7 +23,6 @@
   }
 
   .welcome h1 {
-    margin-top: 500px;
     font-family: $cursive;
   }
 
@@ -37,4 +35,17 @@
   .welcome .button {
     margin-top: 1em;
     position: relative;
+    z-index: $zindex-base + 2;
+  }
+
+
+  .is-skrolling {
+    .welcome .logo {
+      position: fixed;
+      top: 0px;
+      left: 50%;
+      transform-origin: top;
+      transform: translate(-50%, 150px);
+    }
+    .welcome h1 { margin-top: 300px; }
   }
