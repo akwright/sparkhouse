@@ -11,15 +11,17 @@
     <link href="//www.google-analytics.com" rel="dns-prefetch">
     <link href="//ajax.googleapis.com" rel="dns-prefetch">
     <link href="//fonts.googleapis.com" rel="dns-prefetch">
+    <link href="//cloud.typography.com" rel="dns-prefetch">
 
     <link href='http://fonts.googleapis.com/css?family=Allan:400|Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6510274/643508/css/fonts.css" />
     <link href="assets/css/style.min.css" rel="stylesheet">
 
     <script src="assets/components/modernizr/modernizr.js"></script>
   </head>
   <body class="no-skrolling">
 
-      <header class="header" role="header">
+      <header id="header" class="header" role="header">
           <nav class="contain nav" role="navigation">
               <a href="#welcome">HOME</a>
               <a href="#services">SERVICES</a>
@@ -29,11 +31,9 @@
           </nav>
       </header>
 
-      
-
       <section id="welcome" class="welcome">
           <a href="./">
-            <img class="logo" data-0="opacity:1;transform:translate(-50%,150px) scale(1);" data-50p="transform:translate(-50%,5%) scale(.3);" src="assets/img/logo.svg" alt="Sparkhouse">
+            <img class="logo" data-0="opacity:1;transform:translate(-50%,100px) scale(1);" data-50p="transform:translate(-50%,15px) scale(.15);" src="assets/img/b&wlogo.svg" alt="Sparkhouse">
           </a>
           <h1 data-0="opacity:1;" data-100p="opacity:0;">We Craft High Quality iOS Apps</h1>
           <p data-0="opacity:1;" data-100p="opacity:0;">Sparkhouse helps businesses accomplish their goals in the age of mobile. Whether you need an iOS app designed, developed, marketed or even improved post-launch, we're ready to team up and get to work.</p>
@@ -302,6 +302,7 @@
 
           <section id="contact" class="contact">
               <form id="contact-form" class="js-contact-form contact-form contain" method="get">
+                  <h2>Drop us a line!</h2>
                   <div class="fields">
                       <fieldset>
                           <label class="inline-label" for="name">Name (required)</label><input id="name" class="input" type="text" name="name" placeholder="Name" required>
@@ -352,7 +353,6 @@
               <figure class="map contain">
                   <img src="assets/img/new-map.jpg" alt="Map of SparkHouse and surrounding area.">
 
-                  <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In  -->
                   <svg id="mapSVG" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="1201px" height="662px" viewBox="0 0 1201 662" enable-background="new 0 0 1201 662" xml:space="preserve">
                     <rect x="0.5" y="1.5" stroke-miterlimit="10" width="1200" height="660"/>
                     <path stroke-miterlimit="10" d="M1182.3,414.4L1029,98.3l164.2-96.8H1183l-156.5,91.7L982.2,1.5h-5.5 l45.6,94.2l-84.9,49.7L867.8,1.5h-10l73.1,147.6l-151.6,88.6L701.5,80.5l46.5-79h-19.5l-34.8,63.3l-31-63.3h-5.5l32.3,70.9 l-38.3,69.1v5.8L635.3,177c0,0-12.4,14-13.8,18.4s7.5,11.2,7.5,11.2s14.2,33.6,19.4,39.9c5.1,6.3,11.2,7.9,11.2,7.9l49.2,99.2 c0,0-2.1,14,0.2,28c2.3,14,10.5,27.5,10.5,27.5l67.2,113.6l-21.5,56c0,0-5.4,9.6-18.4-3c-9.3-7.6-10.5,9.3,2.6,15.6 s21.7-6.8,21.7-6.8l25-59.7c0,0,0-15.4-4.2-24.5c-4.2-9.1-56-98.2-56-98.2l-15.4-44.8l-4.9-6.1L690,297.7l86.6-51l99,198l5.2-2 l-98.7-199.3l151.4-89l91.4,185.3h6.5l-91.6-189.1l84.8-49.9l152.5,316.6c-72.5,43.9-314.6,190.5-318.8,193c-5,3,1.2,5.6,1.2,5.6 l322.1-191.3l4.2-2.5l14.4-8.3v-10.7C1200.5,403.3,1192,408.5,1182.3,414.4z M687.1,291.7L641.8,197c0,0-0.9-8.6,1.2-16.6 c2.1-7.9,14.5-25.9,14.5-25.9l39.6-66.8L773.7,241L687.1,291.7z"/>
@@ -392,7 +392,7 @@
 
       </main>
 
-      <footer class="footer" role="footer">
+      <footer id="footer" class="footer" role="footer">
         <div class="contain">
           <p class="copyright">&copy; 2015 Sparkhouse Labs &nbsp; | &nbsp; All rights reserved.</p>
         </div>

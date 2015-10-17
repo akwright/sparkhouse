@@ -6,12 +6,12 @@
 }
 
 .outline-button {
-  color: $base-color;
-  border: 1px solid $base-color;
+  color: $base-color-light;
+  border: 1px solid $base-color-light;
   border-radius: 3px;
 
   &:hover {
-    background-color: $base-color;
-    color: $base-color-light;
+    background-color: $base-color-light;
+    color: $base-color;
   }
 }

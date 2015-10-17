@@ -33,9 +33,15 @@
       font-style: normal;
     }
     .team-member p {
-      width: 80%;
+      width: 100%;
       margin: auto;
       max-width: 480px;
       color: $base-color;
       line-height: 1.75;
+      text-align: left;
+
+      @media (min-width: 480px) {
+        width: 80%;
+        text-align: center;
+      }
     }
