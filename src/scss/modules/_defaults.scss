@@ -6,10 +6,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 html {
-  background: $base-color-light url('../img/light-6_tile.jpg') repeat;
   color: $base-color;
   font-size: 1em;
   line-height: 1.4;
+  position: relative;
+}
+
+body {
+  background: $base-color-light url('../img/light-6_tile.jpg') repeat;
+  font-family: $body;
+  font-style: $body-style;
+  font-weight: $body-weight;
 }
 
 a {

@@ -366,10 +366,16 @@ td, th {
   -moz-osx-font-smoothing: grayscale; }
 
 html {
-  background: #f8f8f8 url('../img/light-6_tile.jpg') repeat;
   color: #333;
   font-size: 1em;
-  line-height: 1.4; }
+  line-height: 1.4;
+  position: relative; }
+
+body {
+  background: #f8f8f8 url('../img/light-6_tile.jpg') repeat;
+  font-family: "Whitney SSm A", "Whitney SSm B", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400; }
 
 a {
   color: #d9412f; }
@@ -402,13 +408,6 @@ address {
     background-color: #f8f8f8;
     color: #333; }
 
-@font-face {
-  font-family: 'Font-Name';
-  src: url('../fonts/font-name.eot');
-  src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'), url('../fonts/font-name.woff') format('woff'), url('../fonts/font-name.ttf') format('truetype'), url('../fonts/font-name.svg#font-name') format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
@@ -424,6 +423,11 @@ fieldset {
   border: 0;
   margin: 0;
   padding: 0; }
+
+h1, h2, h3, h4, h5, h6, a {
+  font-family: "Gotham A", "Gotham B", Helvetica, Arial, sans-serif;
+  font-style: "font-style: normal";
+  font-weight: 500; }
 
 ::-moz-selection {
   background: #333;
@@ -463,6 +467,9 @@ fieldset {
   backdrop-filter: blur(5px);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   z-index: 4; }
+  @media (min-width: 540px) {
+    .header {
+      height: 80px; } }
   .header::after {
     content: '';
     position: absolute;
@@ -476,6 +483,9 @@ fieldset {
     top: 0;
     left: 0;
     width: 100%; }
+
+.no-skrolling .header {
+  height: 60px; }
 
 .nav {
   display: -webkit-flex;
@@ -493,7 +503,6 @@ fieldset {
 
 .nav a {
   color: #f17f30;
-  font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
   text-decoration: none;
   text-shadow: -1px -1px 0 #000; }
@@ -540,7 +549,7 @@ fieldset {
 
 .copyright {
   margin: 0;
-  padding: 2em 0;
+  padding: 1.8em 0;
   position: relative;
   z-index: 1; }
 
@@ -559,7 +568,7 @@ fieldset {
           justify-content: center;
   background: linear-gradient(to right, #f9a83b, #da2331);
   position: relative;
-  padding-top: 100px;
+  padding-top: 0;
   min-height: 150vh;
   text-align: center; }
 
@@ -574,11 +583,11 @@ fieldset {
   z-index: 1; }
 
 .welcome h1 {
-  font-family: 'Allan', cursive; }
+  font-family: "Gotham A", "Gotham B", Helvetica, Arial, sans-serif; }
 
 .welcome p {
-  width: 70%;
-  max-width: 550px;
+  width: 80%;
+  max-width: 560px;
   line-height: 1.75; }
 
 .welcome .button {
@@ -606,14 +615,12 @@ fieldset {
 .service-text h3 {
   margin-top: 0;
   margin-bottom: .25em;
-  font-family: 'Oswald', sans-serif;
   font-size: 3em;
   font-weight: 200;
   letter-spacing: .25em; }
 .service-text h4 {
   font-weight: 200;
-  font-family: 'Allan', cursive;
-  font-size: 1.5em;
+  font-size: 1.25em;
   line-height: 1.5;
   letter-spacing: .025em; }
 .service-text ul {
@@ -1036,7 +1043,6 @@ fieldset {
       text-align: left;
       margin-bottom: 0; } }
   .location-column h3 {
-    font-family: 'Oswald', sans-serif;
     text-transform: uppercase; }
 
 /* Progress Loading Button */

@@ -13,12 +13,12 @@
 
 
 // DEFAULTS
+
 .service-text {
 
   h3 {
     margin-top: 0;
     margin-bottom: .25em;
-    font-family: $sans-serif;
     font-size: 3em;
     font-weight: 200;
     letter-spacing: .25em;
@@ -26,8 +26,7 @@
 
   h4 {
     font-weight: 200;
-    font-family: $cursive;
-    font-size: 1.5em;
+    font-size: 1.25em;
     line-height: 1.5;
     letter-spacing: .025em;
   }
