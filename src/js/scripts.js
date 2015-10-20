@@ -51,88 +51,6 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
 
   var docElem = window.document.documentElement;
 
-  function documentOffsetTop(elem) {
-     return elem.offsetTop + ( elem.offsetParent ? documentOffsetTop(elem.offsetParent) : 0 );
-  }
-
-  /**
-    by Nemes Ioan Sorin 
-  */
-  var smoothScrollIt = {
-
-    iter : 30, // set timeout miliseconds ..decreased with 1ms for each iteration
-    tm : null, //timeout local variable
-
-    stopShow: function() {
-      clearTimeout(this.tm);
-      this.iter = 30;
-    },
-    
-    getRealTop: function(el) {
-      var elm = el; 
-      var realTop = 0;
-      do {
-        realTop += elm.offsetTop;
-        elm = elm.offsetParent;
-      } while(elm);
-      return realTop;
-    },
-    
-    getPageScroll: function() {
-      var pgYoff = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
-      return pgYoff;
-    },
-    
-    anim: function(id) {
-      this.stopShow();
-      var elementOffset, pageOffset, endPoint, scrollValue, pos, dir, step;
-
-      elementOffset = documentOffsetTop(document.getElementById(id));
-
-      console.log(elementOffset);
-
-      endPoint =  this.getRealTop(document.getElementById(id).parentNode);
-
-      pageOffset = this.getPageScroll();
-
-      if (pageOffset === null || isNaN(pageOffset) || pageOffset === 'undefined') {
-        pageOffset = 0;
-      }
-
-      scrollValue = elementOffset - pageOffset;
-
-      if (scrollValue > endPoint) {
-        pos = (elementOffset - endPoint - pageOffset); 
-        dir = 1;
-      }
-
-      if (scrollValue < endPoint) {
-        pos = (pageOffset + endPoint) - elementOffset;
-        dir = -1; 
-      }
-
-      if(scrollValue !== endPoint) {
-        step = ~~((pos / 4) +1) * dir;
-
-        if(this.iter > 1) {
-          this.iter -= 1; 
-        } else {
-          this.iter = 0; // decrease the timeout timer value but not below 0
-        }
-
-        window.scrollBy(0, step);
-        this.tm = window.setTimeout(function() {
-           smoothScrollIt.anim(id);  
-        }, this.iter); 
-      }
-
-      if(scrollValue === endPoint) { 
-        this.stopShow(); // reset function values
-        return;
-      }
-    }
-  };
-
   window.requestAnimFrame = function(){
     return (
         window.requestAnimationFrame       || 
@@ -817,23 +735,6 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
         resize();
         animate();
 
-      }
-
-    },
-
-    navLinks: {
-
-      init: function() {
-        var navLink = Array.prototype.slice.call( document.querySelectorAll('nav a') );
-
-        for(var i = 0; i < navLink.length; i++) {
-          navLink[i].addEventListener('click', sparkhouse.navLinks.bindClick, false);
-        }
-      },
-
-      bindClick: function(event) {
-        smoothScrollIt.anim( this.getAttribute('href').replace('#', '') );
-        event.preventDefault();
       }
 
     },
