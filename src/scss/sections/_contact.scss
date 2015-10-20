@@ -1,5 +1,16 @@
 .contact {
   padding-top: 4em;
+
+  h2 {
+    font-size: 2em;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+
+    @media (min-width: 540px) {
+      font-size: 2.7em;
+      letter-spacing: .25em;
+    }
+  }
 }
 
 .contact-form {
@@ -212,9 +223,20 @@
   svg rect,
   svg circle {
     fill: none;
-    stroke: black;
+    stroke: #777777;
     stroke-width: 1;
   }
+}
+
+.no-skrolling {
+  .map {
+    height: auto;
+  }
+  .map img {
+    opacity: 1;
+    position: static;
+  }
+  .map svg { display: none; }
 }
 
 

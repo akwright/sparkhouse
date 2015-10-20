@@ -19,22 +19,27 @@
   <body class="no-skrolling">
 
       <header id="header" class="header" role="header">
-          <nav class="contain nav" role="navigation">
-              <a href="#welcome">HOME</a>
-              <a href="#services">SERVICES</a>
-              <a href="./"></a>
-              <a href="#team">TEAM</a>
-              <a href="#contact">CONTACT</a>
-          </nav>
+        <nav class="contain nav" role="navigation">
+          <a href="#welcome">HOME</a>
+          <a href="#services">SERVICES</a>
+          <a href="./"></a>
+          <a href="#team">TEAM</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
       </header>
 
       <section id="welcome" class="welcome">
-          <a href="./">
-            <img class="logo" data-0="opacity:1;transform:translate(-50%,100px) scale(1);" data-50p="transform:translate(-50%,10px) scale(.25);" src="assets/img/b&wlogo.svg" alt="Sparkhouse">
-          </a>
-          <h1>We Craft High Quality iOS Apps</h1>
-          <p>Sparkhouse helps businesses accomplish their goals in the age of mobile. Whether you need an iOS app designed, developed, marketed or even improved post-launch, we're ready to team up and get to work.</p>
-          <a class="button  outline-button" href="#contact">Let's Get Started</a>
+        <svg id="scene">
+          <g id="meshContainer">
+            <rect x="0" y="0" width="100%" height="100%" fill="#f9a83b"
+          </g>
+        </svg>
+        <a href="./">
+          <img class="logo" data-0="opacity:1;transform:translate(-50%,100px) scale(1);" data-50p="transform:translate(-50%,10px) scale(.25);" src="assets/img/b&wlogo.svg" alt="Sparkhouse">
+        </a>
+        <h1>We Craft High Quality iOS Apps</h1>
+        <p>Sparkhouse helps businesses accomplish their goals in the age of mobile. Whether you need an iOS app designed, developed, marketed or even improved post-launch, we're ready to team up and get to work.</p>
+        <a class="button  outline-button" href="#contact">Let's Get Started</a>
       </section>
 
       <section id="services" class="services">
@@ -43,9 +48,13 @@
 
           <div class="service-image" data-100p="transform:translate3d(-50%,-50%,1000px);opacity:0;" data-_box-50p="transform:translate3d(-50%,-50%,0px);opacity:1;" data-_box-100p data-_box-150p="transform:translate3d(-50%,-50%,0px);" data-end="transform:translate3d(-50%,-50%,0px); opacity: 1;" data--200-end="opacity:0;">
 
-            <img data-_box-340p="opacity:0;" data-_box-370p="opacity:1;" data-_box-500p="opacity:1;" data-_box-550p="opacity:0;" src="assets/img/house.png" alt="House">
+            <img id="design_house" class="mobile-house" src="assets/img/design_blueprint.png" alt="Blueprint">
 
-            <img data-_box-440p="opacity:0;" data-_box-470p="opacity:1;" src="assets/img/house-with-pool.png" alt="House with pool">
+            <img id="develop_house" class="mobile-house" src="assets/img/develop_house.png" alt="Wireframe house">
+
+            <img id="market_house" data-_box-340p="opacity:0;" data-_box-370p="opacity:1;" data-_box-500p="opacity:1;" data-_box-550p="opacity:0;" src="assets/img/house.png" alt="House">
+
+            <img id="iterate_house" data-_box-440p="opacity:0;" data-_box-470p="opacity:1;" src="assets/img/house-with-pool.png" alt="House with pool">
 
             <svg id="house_blueprint" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="595.4px" height="379px" viewBox="0 0 595.4 379" enable-background="new 0 0 595.4 379" xml:space="preserve">
               <g id="blueprint">
@@ -226,7 +235,7 @@
 
         <div class="service-text-wrap">
 
-          <div class="service-text" data-100p="left:100px;opacity:0;" data-_box-50p="left:50px;opacity:1;" data-_box-100p data-_box-150p="left:100px;opacity:0;">
+          <div class="js-design  service-text" data-100p="left:100px;opacity:0;" data-_box-50p="left:50px;opacity:1;" data-_box-100p data-_box-150p="left:100px;opacity:0;">
             <h3>DESIGN</h3>
             <h4>Great products start out with a well-prepared blueprint. Let us be your guide to transcribing your vision into a comprehensive product design.</h4>
             <ul>
@@ -240,7 +249,7 @@
             </ul>
           </div>
 
-          <div class="service-text" data-_box-150p="left:100px;opacity:0;" data-_box-200p="left:50px;opacity:1;" data-_box-250p data-_box-300p="left:100px;opacity:0;">
+          <div class="js-develop  service-text" data-_box-150p="left:100px;opacity:0;" data-_box-200p="left:50px;opacity:1;" data-_box-250p data-_box-300p="left:100px;opacity:0;">
             <h3>DEVELOP</h3>
             <h4>Whether you need a minimum viable product or a fully deployed solution, we make it a priority to get the structure and the details right to build high quality mobile products your users will love.</h4>
             <ul>
@@ -251,7 +260,7 @@
             </ul>
           </div>
 
-          <div class="service-text" data-_box-300p="left:100px;opacity:0;" data-_box-350p="left:50px;opacity:1;" data-_box-400p data-_box-450p="left:100px;opacity:0;">
+          <div class="js-market  service-text" data-_box-300p="left:100px;opacity:0;" data-_box-350p="left:50px;opacity:1;" data-_box-400p data-_box-450p="left:100px;opacity:0;">
             <h3>MARKET</h3>
             <h4>Standing out in the ocean of millions of existing apps is tough. In addition to designing and building your app, we can also create and execute effective app marketing and monetization strategies to help you acquire and retain users and drive a return on your mobile investment.</h4>
             <ul>
@@ -263,7 +272,7 @@
             </ul>
           </div>
 
-          <div class="service-text" data-_box-450p="left:100px;opacity:0;" data-_box-500p="left:50px;opacity:1;" data-_box-550p data-_box-600p="left:100px;opacity:0;">
+          <div class="js-iterate  service-text" data-_box-450p="left:100px;opacity:0;" data-_box-500p="left:50px;opacity:1;" data-_box-550p data-_box-600p="left:100px;opacity:0;">
             <h3>ITERATE</h3>
             <h4>Work with us from design to market - and beyond! We're on-hand as long as you need us, to help you evolve your product and continue accomplishing your goals.</h4>
             <ul>
