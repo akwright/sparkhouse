@@ -10,6 +10,7 @@
     color: $nav-links;
     text-decoration: none;
     text-shadow: -1px -1px 0 #000;
+    position: relative;
 
     &:nth-of-type(1) { color: $yellow-orange; }
     &:nth-of-type(2) { color: $orange; }
@@ -20,6 +21,22 @@
       font-size: 40px;
       margin-left: 2em;
       margin-right: 2em;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transform: translateX(-50%);
+
+      transition: width .25s;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
 
     @media (min-width: 540px) {

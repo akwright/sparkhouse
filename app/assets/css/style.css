@@ -505,7 +505,8 @@ h1, h2, h3, h4, h5, h6, a {
 .nav a {
   color: #f17f30;
   text-decoration: none;
-  text-shadow: -1px -1px 0 #000; }
+  text-shadow: -1px -1px 0 #000;
+  position: relative; }
   .nav a:nth-of-type(1) {
     color: #f9a83b; }
   .nav a:nth-of-type(2) {
@@ -518,6 +519,20 @@ h1, h2, h3, h4, h5, h6, a {
     font-size: 40px;
     margin-left: 2em;
     margin-right: 2em; }
+  .nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    transition: width .25s; }
+  .nav a:hover::after {
+    width: 100%; }
   @media (min-width: 540px) {
     .nav a {
       letter-spacing: 2px; } }
@@ -569,7 +584,6 @@ h1, h2, h3, h4, h5, h6, a {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: linear-gradient(to right, #f9a83b, #da2331);
   position: relative;
   padding-top: 0;
   min-height: 150vh;
@@ -578,8 +592,11 @@ h1, h2, h3, h4, h5, h6, a {
 
 .welcome .logo {
   width: 100%;
-  max-width: 200px;
-  z-index: 5; }
+  max-width: 150px;
+  z-index: 5;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
 
 .welcome h1, .welcome p {
   color: #f8f8f8;
@@ -607,21 +624,24 @@ h1, h2, h3, h4, h5, h6, a {
 
 .is-skrolling .welcome .logo {
   position: fixed;
-  top: 0px;
+  top: 25%;
   left: 50%;
   -webkit-transform-origin: top;
       -ms-transform-origin: top;
           transform-origin: top;
-  -webkit-transform: translate(-50%, 100px);
-      -ms-transform: translate(-50%, 100px);
-          transform: translate(-50%, 100px); }
+  -webkit-transform: translate(-50%, -25%);
+      -ms-transform: translate(-50%, -25%);
+          transform: translate(-50%, -25%); }
 
-.welcome svg {
+.welcome canvas, .welcome #scene {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%; }
+
+.welcome canvas {
+  top: -60px; }
 
 .service-text h3 {
   margin-top: 0;
