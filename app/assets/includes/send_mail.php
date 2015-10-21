@@ -17,8 +17,8 @@
     $mail->From = 'inquiry@sparkhouse.com';
     $mail->FromName = 'Sparkhouse Bot';
     $mail->addAddress('hello@akwright.com', 'Alex Wright');
-    $mail->addAddress('gabe@sparkhousestudios.com', 'Gabe Kwakyi');
-    $mail->addAddress('gregory@sparkhousestudios.com', 'Greg Klein');
+    $mail->addAddress('gabe@sparkhouselabs.com', 'Gabe Kwakyi');
+    $mail->addAddress('gregory@sparkhouselabs.com', 'Gregory Klein');
 
     $mail->Subject = 'You have a new inquiry!';
 

@@ -33,6 +33,7 @@
     color: $base-color-light;
     position: relative;
     z-index: $zindex-base;
+    text-shadow: 0 2px 20px rgba(0,0,0,.2);
   }
 
   .welcome h1 {
@@ -49,6 +50,7 @@
   .welcome p {
     width: 80%;
     max-width: 560px;
+    font-weight: bold;
     line-height: 1.75;
   }
 

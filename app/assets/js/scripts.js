@@ -323,7 +323,6 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
         this.setupMapSVG.init();
       }
       this.polyBG.init();
-      this.navLinks.init();
       if (isMobile.any || (docElem.clientWidth < 540) ) {
         this.setupMobileScroll.init();
       }
