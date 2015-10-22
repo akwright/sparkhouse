@@ -1,16 +1,5 @@
 .contact {
   padding-top: 4em;
-
-  h2 {
-    font-size: 2em;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-
-    @media (min-width: 540px) {
-      font-size: 2.7em;
-      letter-spacing: .25em;
-    }
-  }
 }
 
 .contact-form {
@@ -66,7 +55,7 @@
       }
 
       &.is-active {
-        color: #0b9fea;
+        color: $yellow-orange;
       }
     }
 
@@ -133,7 +122,7 @@
       }
 
       .checkbox-item input[type="checkbox"]:checked + label {
-        background-image: linear-gradient(155deg, $orange, $red-orange);
+        background: $orange;
         border-color: $orange;
         color: #fff;
       }

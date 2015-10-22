@@ -8,6 +8,7 @@
 }
   .nav a {
     color: $nav-links;
+    font-size: .875em;
     text-decoration: none;
     text-shadow: -1px -1px 0 #000;
     position: relative;
@@ -31,16 +32,22 @@
       height: 1px;
       background: currentColor;
       transform: translateX(-50%);
+      opacity: 0;
 
-      transition: width .25s;
+      transition: width .25s, opacity .25s;
     }
 
     &:hover::after {
       width: 100%;
+      opacity: 1;
     }
 
     @media (min-width: 540px) {
       letter-spacing: 2px;
+    }
+
+    @media (min-width: 360px) {
+      font-size: 1em;
     }
   }
 

@@ -57,7 +57,9 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
 
   'use strict';
 
-  var docElem = window.document.documentElement;
+  var docElem  = window.document.documentElement,
+      touchEvt = (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch)) ? 'touchstart' : 'click';
+
 
   window.requestAnimFrame = function(){
     return (
@@ -319,6 +321,7 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
     init: function() {
       this.services.init();
       this.form.init();
+      this.navLinks.init();
       if (!isMobile.any) {
         this.setupMapSVG.init();
       }
@@ -335,6 +338,17 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
         // un-hide services on page-load
         var services = document.getElementById('services');
         services.classList.add('is-visible');
+
+        // offset scroll if services link clicked
+        var servicesLink = document.querySelector('nav a:nth-of-type(2)'),
+            welcomeSection = document.getElementById('welcome'),
+            welcomeHeight = (welcomeSection.clientHeight || welcomeSection.offsetHeight);
+
+        servicesLink.addEventListener('click', scrollToServices, false);
+
+        function scrollToServices(event) {
+          window.scrollTo(0, welcomeHeight);
+        }
 
         this.setSVGDashes();
         this.scrollServices();
@@ -610,6 +624,26 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
 
     },
 
+    navLinks: {
+
+      init: function() {
+
+        var links = Array.prototype.slice.call(document.querySelectorAll('nav a') );
+
+        for (var l = 0; l < links.length; l++) {
+          if (touchEvt === 'touchstart') {
+            links[l].addEventListener('touchend', scrollToLinks, false);
+          }
+        }
+
+        function scrollToLinks(event) {
+          var linkEle = this;
+          window.location.href = linkEle.getAttribute('href');
+        }
+      }
+
+    },
+
     setupMapSVG: {
 
         init: function() {
@@ -664,7 +698,8 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
 
       init: function() {
 
-        var container = document.getElementById('scene'),
+        var welcome = document.getElementById('welcome'),
+            container = document.getElementById('scene'),
             renderer = new FSS.CanvasRenderer(),
             _width = container.clientWidth + 100,
             _height = (container.clientHeight || container.outerHeight) - 60,
@@ -738,9 +773,15 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
           requestAnimationFrame(animate);
         }
 
-        initialize();
-        resize();
-        animate();
+        if (!isMobile.any && docElem.clientWidth > 540 ) {
+          initialize();
+          resize();
+          animate();
+        } else {
+          welcome.style.backgroundImage = 'url(\'assets/img/poly.jpg\')';
+          welcome.style.backgroundRepeat = 'no-repeat';
+          welcome.style.backgroundSize = 'cover';
+        }
 
       }
 
@@ -750,7 +791,7 @@ FSS={FRONT:0,BACK:1,DOUBLE:2,SVGNS:"http://www.w3.org/2000/svg"},FSS.Array="func
 
       init: function() {
 
-        var houseArr = ['design', 'develop', 'market', 'iterate'];
+        var houseArr = ['design', 'develop', 'market', 'improve'];
 
         for (var i = 0; i < houseArr.length; i++) {
           var houseImage  = document.querySelector('#' + houseArr[i] + '_house'),

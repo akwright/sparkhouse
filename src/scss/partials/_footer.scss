@@ -13,17 +13,47 @@
 
     background: linear-gradient(to left, $yellow-orange, $red);
   }
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
 }
-  .copyright {
-    margin: 0;
-    padding: 1.8em 0;
+  .footer .contain { padding: 1.8em 0; }
+
+  .footer p {
+    display: block;
     position: relative;
+    margin: 0 0 1.5em;
+    
     z-index: $zindex-base;
+    line-height: 1;
+
+    @media (min-width: 450px) {
+      display: inline-block;
+      margin: 0 .5em 0 0;
+      padding: 0 .75em 0 0;
+      border-right: 1px solid currentColor;
+
+      &:last-of-type {
+        margin-right: 0;
+        padding-right: 0;
+        border-right-width: 0;
+      }
+    }
+
+    &:last-of-type { margin-bottom: 0; }
+  }
+
+  .social {
+    a {
+      margin-right: 1em;
+      text-decoration: none;
+
+      @media (min-width: 450px) {
+        margin-right: .4em;
+      }
+
+      &:last-of-type { margin-right: 0; }
+    }
+
+    path { transition: .25s ease; }
+
+    a:hover #icon-dribble { fill: #ea4c89; }
+    a:hover #icon-github  { fill: #ffffff; }
   }

@@ -1,3 +1,19 @@
 .main {
   position: relative;
 }
+  .main section h2 {
+    color: lighten($base-color, 30%);    
+    font-size: 2em;
+    letter-spacing: .05em;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: 540px) {
+      font-size: 2.7em;
+      letter-spacing: .25em;
+    }
+
+    @media (min-width: 800px) {
+      font-size: 4em;
+    }
+  }

@@ -19,15 +19,21 @@
   h3 {
     margin-top: 0;
     margin-bottom: .25em;
-    font-size: 3em;
+
+    color: lighten($base-color, 30%);
+    font-size: 2.5em;
     font-weight: 200;
     letter-spacing: .25em;
+
+    @media (min-width: 340px) {
+      font-size: 3em;
+    }
   }
 
   h4 {
     font-weight: 200;
-    font-size: 1.25em;
-    line-height: 1.5;
+    font-size: 1.05em;
+    line-height: 1.7;
     letter-spacing: .025em;
   }
 
@@ -39,6 +45,7 @@
 
   li {
     margin: .5em 0;
+    color: lighten($base-color, 20%);
     font-size: .875em;
     text-transform: uppercase;
   }
@@ -99,7 +106,7 @@
 
     .service-text {
       position: absolute;
-      width: 100%;
+      width: 85%;
       max-width: 500px;
       top: 50%;
       color: $base-color;

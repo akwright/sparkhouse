@@ -1,6 +1,4 @@
 <?php
-  require 'phpmailerautoload.php';
-
   if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
     $name = strip_tags( trim( $_POST['name'] ) );
@@ -12,63 +10,24 @@
       $servicesArray = $_POST['services'];
     }
 
-    $mail = new PHPMailer;
-
-    $mail->From = 'inquiry@sparkhouse.com';
-    $mail->FromName = 'Sparkhouse Bot';
-    $mail->addAddress('hello@akwright.com', 'Alex Wright');
-    $mail->addAddress('gabe@sparkhouselabs.com', 'Gabe Kwakyi');
-    $mail->addAddress('gregory@sparkhouselabs.com', 'Gregory Klein');
-
-    $mail->Subject = 'You have a new inquiry!';
-
-    $mail->Body    = 'It\'s our time to spark!<br><br>';
-    $mail->Body   .= '<p><b>Inquirer:</b> ' . $name . '</p>';
-    $mail->Body   .= '<p><b>Inquirer Email:</b> ' . $email . '</p>';
-    $mail->Body   .= '<p><b>Services Interested In:</b><br>';
-
-    $count = count($servicesArray);
-    for ( $i = 0; $i < $count; $i++ ) {
-      $mail->Body .= '- ' . $servicesArray[$i];
-      if ($i < ($count - 1) ) {
-        $mail->Body .= '<br>';
-      }
-    }
-
-    $mail->Body   .= '</p>';
     if ( isset($_POST['message']) ) {
       $message = htmlentities ( trim( $_POST['message'] ), ENT_NOQUOTES );
-      $mail->Body .= '<p><b>Inquirer Message:</b><br>' . $message; 
-    }
-    $mail->Body   .= '<br><br><i>keep it juicy</i>';
-
-    $mail->isHTML(true);                                  // Set email format to HTML
-
-    $mail->AltBody = 'It\'s our time to spark!\r\n\r\n';
-    $mail->AltBody.= 'Inquirer: ' . $name . '\r\n';
-    $mail->AltBody.= 'Inquirer Email: ' . $email . '\r\n';
-    $mail->AltBody.= 'Services Interested In:\r\n';
-
-    $count = count($servicesArray);
-    for ( $i = 0; $i < $count; $i++ ) {
-      $mail->AltBody .= '- ' . $servicesArray[$i];
-      if ($i < ($count - 1) ) {
-        $mail->AltBody .= '\r\n';
-      }
     }
 
-    $mail->AltBody.= '\r\n';
-    if ( isset($_POST['message']) ) {
-      $message = htmlentities ( trim( $_POST['message'] ), ENT_NOQUOTES );
-      $mail->AltBody .= 'Inquirer Message:\r\n' . $message; 
-    }
+    //Include the phpmailer functions
+    require_once( 'phpmailer-config.php' );
 
-    if(!$mail->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        echo 'Message has been sent';
-    }
+    $to = array(
+      'Alex Wright'     => 'hello@akwright.com',
+      'Gabe Kwakyi'     => 'gabe@sparkhouselabs.com',
+      'Gregory Klein'   => 'gregory@sparkhouselabs.com',
+      'Nico Grossfield' => 'nico@sparkhouselabs.com'
+    );
+    
+    //Send the message assigned to a var so we can output
+    $status = send_message( 'inquiry@sparkhouselabs.com', 'Sparkhouse Bot', $to, 'You have a new inquiry!', $name, $email, $servicesArray, $message );
+
+    echo $status;
   } else {
     echo "Failure!";
   }
