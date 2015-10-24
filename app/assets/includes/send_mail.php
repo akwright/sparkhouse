@@ -19,9 +19,9 @@
 
     $to = array(
       'Alex Wright'     => 'hello@akwright.com',
-      'Gabe Kwakyi'     => 'gabe@sparkhouselabs.com',
-      'Gregory Klein'   => 'gregory@sparkhouselabs.com',
-      'Nico Grossfield' => 'nico@sparkhouselabs.com'
+      'Gabe Kwakyi'     => 'gabe@sparkhousestudios.com',
+      'Gregory Klein'   => 'gregory@sparkhousestudios.com',
+      'Nico Grossfield' => 'nico@sparkhousestudios.com'
     );
     
     //Send the message assigned to a var so we can output
