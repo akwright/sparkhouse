@@ -630,11 +630,25 @@ h1, h2, h3, h4, h5, h6, a {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background: url('../img/poly.jpg') no-repeat;
+  background-size: cover;
   position: relative;
   padding-top: 0;
   min-height: 150vh;
   text-align: center;
   overflow: hidden; }
+  .welcome.no-bg {
+    background: none; }
+  @media (min-width: 540px) {
+    .welcome {
+      background: linear-gradient(to right, #f9a83b, #da2331); } }
+  @media (min-height: 800px) {
+    .welcome {
+      min-height: 100vh;
+      padding-bottom: 12.5%;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; } }
 
 .welcome .logo {
   width: 100%;

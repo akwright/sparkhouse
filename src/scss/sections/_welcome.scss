@@ -4,21 +4,25 @@
   align-items: center;
   justify-content: center;
 
+  background: url('../img/poly.jpg') no-repeat;
+  background-size: cover;
   position: relative;
   padding-top: 0;
   min-height: 150vh;
   text-align: center;
   overflow: hidden;
 
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0; left: 0;
-  //   height: 100%; width: 100%;
+  &.no-bg { background: none; }
 
-  //   background: linear-gradient(to right, rgba($yellow-orange,.4), rgba($red,.4));
-  //   z-index: 1;
-  // }
+  @media (min-width: 540px) {
+    background: linear-gradient(to right, $yellow-orange, $red);
+  }
+
+  @media (min-height: 800px) {
+    min-height: 100vh;
+    padding-bottom: 12.5%;
+    justify-content: flex-end;
+  }
 }
 
   .welcome .logo {

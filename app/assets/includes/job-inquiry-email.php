@@ -62,7 +62,7 @@
                   <table border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                       <td>
-                        <img class="img-max" alt="New Job Inquiry" src="http://akwright.com/_freelance/sparkhouse/assets/img/email-header.jpg" width="100%" height="100" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                        <img class="img-max" alt="New Job Inquiry" src="http://akwright.com/_freelance/sparkhouse/assets/img/email-header.jpg" width="100%" height="auto" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                       </td>
                     </tr>
                   </table>
